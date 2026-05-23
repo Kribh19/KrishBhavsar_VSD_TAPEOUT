@@ -1,72 +1,89 @@
 # KrishBhavsar_VSD_TAPEOUT
 
-# VSD-SoC-Design-Program-Day0
+## VSD SoC Design Program - Day 0: Development Environment Setup
 
-## Day0_Setup_Yosys_IcarusVerilog_GTKWave
-
-Welcome to **Day 0** of the VSD SoC Design and Physical Design program.  
-On this day, we focus on setting up the open-source tools that will be used throughout the course: **Yosys**, **Icarus Verilog (iverilog)**, and **GTKWave**.
-
-To ensure a stable and controlled development environment, we first set up a virtualized Linux system:
-
-* Installed **Oracle VirtualBox** as the hypervisor.
-* Created a dedicated **Ubuntu 20.04 LTS** virtual machine.
-* Provisioned the VM with **6 GB of RAM** and **4 virtual CPUs**, ensuring sufficient resources for compute-intensive EDA tasks.
-* Once Ubuntu was running, we accessed the **Linux terminal** to begin tool installation and environment configuration.
+This repository documents **Day 0** of the **VSD SoC Design and Physical Design Program** by VLSI System Design (VSD). The focus is on establishing a complete development environment for RTL-to-GDSII ASIC flows using open-source EDA tools.
 
 ---
 
-## Theory and Background
+## Overview
 
-### 🔹 Yosys – RTL Synthesis Engine
+Day 0 covers the foundational setup required to run open-source ASIC design tools in a virtualized Linux environment. This includes:
 
-Yosys is a powerful open-source **RTL synthesis framework** that transforms **Verilog RTL code** into an optimized **gate-level netlist**. It integrates with standard cell libraries (e.g., **Sky130 PDK**) to map RTL designs into real hardware primitives.
-
-* **Role in Flow:** RTL → Gate-Level Netlist
-* **Capabilities:** logic optimization, technology mapping, design hierarchy handling, synthesis reports.
-* **Why Yosys?** It forms the backbone of open-source digital synthesis and is compatible with OpenLANE for complete RTL-to-GDSII flows.
-
-### 🔹 Icarus Verilog (iverilog) – Simulation Engine
-
-Icarus Verilog is an open-source **HDL simulation and compilation tool**. It validates design functionality **before synthesis** by simulating RTL.
-
-* **Role in Flow:** Functional simulation & verification of Verilog RTL.
-* **Outputs:** Generates executable simulation files (`.vvp`) and waveform dump files (`.vcd`).
-* **Importance:** Detects design bugs early, reducing synthesis-debug cycles.
-
-### 🔹 GTKWave – Waveform Analysis Tool
-
-GTKWave is a **waveform viewer** that visualizes simulation outputs from `.vcd` or `.fst` files. It enables signal-level debugging by showing how inputs and outputs evolve over time.
-
-* **Role in Flow:** Debugging and waveform inspection.
-* **Features:** zooming, signal grouping, cursor-based measurement, and hierarchical viewing.
-* **Use Case:** Essential for confirming functional correctness and validating timing behavior.
-- ![Image](DAY0-0.png)
-- ![Image](DAY0-1.png)
-- ![Image](DAY0-2.png)
-- ![Image](DAY0-3.png)
-- ![Image](DAY0-4.png)
-- ![Image](DAY0-5.png)
+- Setting up a hypervisor and Linux virtual machine
+- Installing and configuring core EDA toolchain components
+- Verifying tool installations for subsequent design work
 
 ---
 
-## Key Objectives for Day 0
+## Environment Configuration
 
-1. **Prepare Environment**
+### Virtualization Setup
 
-   * Configure Oracle VirtualBox and Ubuntu 20.04 VM.
-   * Allocate sufficient resources (≥6 GB RAM, ≥4 vCPUs).
+| Component | Configuration |
+|-----------|-------------|
+| **Hypervisor** | Oracle VirtualBox |
+| **Guest OS** | Ubuntu 20.04 LTS |
+| **RAM** | 6 GB |
+| **vCPUs** | 4 |
 
-2. **Install Core Tools**
+The VM is provisioned with sufficient resources to handle compute-intensive EDA tasks such as synthesis, floorplanning, and place-and-route operations.
 
-   * Install and build Yosys from source.
-   * Install Icarus Verilog via package manager.
-   * Install GTKWave for waveform visualization.
+### Toolchain Installed
 
-3. **Validate Setup**
+| Tool | Purpose |
+|------|--------|
+| **Yosys** | RTL synthesis framework for converting Verilog to gate-level netlists |
+| **Icarus Verilog (iverilog)** | HDL simulation and compilation tool for pre-synthesis verification |
+| **GTKWave** | Waveform viewer for debugging simulation outputs (.vcd files) |
 
-   * Run version checks (`yosys`, `iverilog -v`, `gtkwave`) to confirm successful installation.
-   * Prepare environment for Day 1
-   
+---
 
+## Tool Workflow
 
+```
+RTL Design (Verilog)
+       ↓
+Icarus Verilog → Simulate & Verify (VCD output)
+       ↓
+GTKWave → Visualize Waveforms
+       ↓
+Yosys → Synthesize to Gate-Level Netlist
+```
+
+---
+
+## Screenshots
+
+- **DAY0-0.png** — Initial setup overview
+- **DAY0-1.png** — VM configuration
+- **DAY0-2.png** — Ubuntu environment ready
+- **DAY0-3.png** — Tool installation verification
+- **DAY0-4.png** — Version checks
+- **DAY0-5.png** — Final environment status
+
+---
+
+## Key Learnings
+
+- Successfully configured a virtualized Linux environment for EDA work
+- Installed and validated the complete open-source ASIC toolchain
+- Understood the role of each tool in the RTL-to-GDSII flow
+- Prepared the system for subsequent RTL design and simulation tasks
+
+---
+
+## Next Steps
+
+- **Week 1**: RTL design and simulation using the 2:1 MUX example
+- **Week 2**: SoC-level functional modeling and verification
+- **Later stages**: Physical design using OpenLANE and Sky130 PDK
+
+---
+
+## Author
+
+**Krish Bhavsar**  
+Electronics & Communication Engineering  
+[GitHub: @Kribh19](https://github.com/Kribh19)  
+bhavsar.krish33@gmail.com
